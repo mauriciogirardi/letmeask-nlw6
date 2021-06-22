@@ -1,4 +1,14 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const animate = keyframes`
+  0% {
+    transform: translateY(50px);
+    opacity:0;
+  }
+  100% {
+    transform: translateX(0);
+  }
+`;
 
 export const Container = styled.div`
   display: flex;
@@ -55,6 +65,7 @@ export const Center = styled.div`
   max-width: 324px;
   width: 100%;
   text-align: center;
+  animation: ${animate} linear 0.6s;
 
   > img {
     align-self: center;
