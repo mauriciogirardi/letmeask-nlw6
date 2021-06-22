@@ -15,6 +15,7 @@ const GlobalStyles = createGlobalStyle`
 
     --purple: #6F4BD8;
     --danger: #D73754;
+    --red: #ea4335;
   }
 
   * {
@@ -36,6 +37,15 @@ const GlobalStyles = createGlobalStyle`
     font-size: 16px;
     font-weight: 400;
     font-family: 'Roboto', sans-serif;
+  }
+
+  button {
+    cursor: pointer;
+    transition: filter 0.2s;
+
+    :not(:disabled):hover {
+      filter: brightness(0.9);
+    }
   }
 `;
 
