@@ -5,15 +5,21 @@ import illustrationImg from 'assets/images/illustration.svg';
 import logoImg from 'assets/images/logo.svg';
 import googleIconImg from 'assets/images/google-icon.svg';
 
+import { useAuth } from 'hooks/auth';
 import Button from 'components/Button';
 import * as S from './styles';
 
 export default function Home() {
   const history = useHistory();
+  const { signInWithGoogle, user } = useAuth();
 
-  const navigateToNewRoom = useCallback(() => {
+  const navigateCreateRoom = useCallback(async () => {
+    if (!user) {
+      await signInWithGoogle();
+    }
+
     history.push('/rooms/new');
-  }, [history]);
+  }, [history, user, signInWithGoogle]);
 
   return (
     <S.Container>
@@ -25,10 +31,11 @@ export default function Home() {
         <strong>Toda pergunta tem uma resposta.</strong>
         <p>Aprenda e compartilhe conhecimento com outras pessoas</p>
       </S.Aside>
+
       <S.Main>
         <S.Center>
           <img src={logoImg} alt="Letmeask" />
-          <button type="button" onClick={navigateToNewRoom}>
+          <button type="button" onClick={navigateCreateRoom}>
             <img src={googleIconImg} alt="Logo do Google" />
             Crie sua sala com o Google
           </button>
