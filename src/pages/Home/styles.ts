@@ -111,10 +111,10 @@ export const Form = styled.form`
     background-color: var(--details);
     border: 1px solid var(--gray-medium);
     width: 100%;
+    outline-color: var(--purple);
   }
 
   button {
     margin-top: 1rem;
-    width: 100%;
   }
 `;
