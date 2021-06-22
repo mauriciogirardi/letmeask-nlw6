@@ -1,3 +1,6 @@
+import { useCallback } from 'react';
+import { useHistory } from 'react-router-dom';
+
 import illustrationImg from 'assets/images/illustration.svg';
 import logoImg from 'assets/images/logo.svg';
 import googleIconImg from 'assets/images/google-icon.svg';
@@ -6,6 +9,12 @@ import Button from 'components/Button';
 import * as S from './styles';
 
 export default function Home() {
+  const history = useHistory();
+
+  const navigateToNewRoom = useCallback(() => {
+    history.push('/rooms/new');
+  }, [history]);
+
   return (
     <S.Container>
       <S.Aside>
@@ -19,7 +28,7 @@ export default function Home() {
       <S.Main>
         <S.Center>
           <img src={logoImg} alt="Letmeask" />
-          <button type="button">
+          <button type="button" onClick={navigateToNewRoom}>
             <img src={googleIconImg} alt="Logo do Google" />
             Crie sua sala com o Google
           </button>
