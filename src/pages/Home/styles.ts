@@ -1,5 +1,9 @@
 import styled, { keyframes } from 'styled-components';
 
+type FormProps = {
+  isFilled?: boolean;
+};
+
 const animate = keyframes`
   0% {
     transform: translateY(-50px);
@@ -115,18 +119,28 @@ export const Line = styled.div`
   }
 `;
 
-export const Form = styled.form`
+export const Form = styled.form<FormProps>`
   input {
     height: 3rem;
     border-radius: 0.5rem;
     padding: 0 1rem;
     background-color: var(--details);
-    border: 1px solid var(--gray-medium);
     width: 100%;
-    outline-color: var(--purple);
+    border: 1px solid ${props => (props.isFilled ? '#A8A8B3' : '#ea4335')};
+    outline-color: ${props => (props.isFilled ? '#6F4BD8' : '#ea4335')};
   }
 
   button {
     margin-top: 1rem;
   }
+`;
+
+export const Warning = styled.span`
+  margin-top: 0.5rem;
+  display: block;
+  color: var(--red);
+  font-size: 0.8rem;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  text-align: left;
 `;

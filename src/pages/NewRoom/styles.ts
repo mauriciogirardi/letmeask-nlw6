@@ -1,5 +1,9 @@
 import styled, { keyframes } from 'styled-components';
 
+type FormProps = {
+  isFilled?: boolean;
+};
+
 const animate = keyframes`
   0% {
     transform: translateY(50px);
@@ -95,14 +99,15 @@ export const Title = styled.h3`
   margin: 3rem 0 1.5rem 0;
 `;
 
-export const Form = styled.form`
+export const Form = styled.form<FormProps>`
   input {
     height: 3rem;
     border-radius: 0.5rem;
     padding: 0 1rem;
     background-color: var(--details);
-    border: 1px solid var(--gray-medium);
+    border: 1px solid ${props => (props.isFilled ? '#A8A8B3' : '#ea4335')};
     width: 100%;
+    outline-color: ${props => (props.isFilled ? '#6F4BD8' : '#ea4335')};
   }
 
   button {
