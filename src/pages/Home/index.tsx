@@ -1,5 +1,6 @@
 import { useCallback, useState, FormEvent } from 'react';
 import { useHistory } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 
 import illustrationImg from 'assets/images/illustration.svg';
 import logoImg from 'assets/images/logo.svg';
@@ -44,6 +45,10 @@ export default function Home() {
         return setRoomExists(true);
       }
 
+      if (roomRef.val().endAt) {
+        return toast.error(`A sala ${roomCode} já esta fechada!`);
+      }
+
       history.push(`/room/${roomCode}`);
     },
     [roomCode, history],
@@ -61,6 +66,7 @@ export default function Home() {
 
   return (
     <S.Container>
+      <Toaster position="top-right" />
       <S.Aside>
         <img
           src={illustrationImg}
