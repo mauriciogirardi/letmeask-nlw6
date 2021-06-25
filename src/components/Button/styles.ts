@@ -1,6 +1,19 @@
 import styled from 'styled-components';
 
 export const Container = styled.button`
+  &.outlined {
+    border: 1px solid var(--purple);
+    background-color: transparent;
+    color: var(--purple);
+    transition: all 0.4s;
+
+    :hover {
+      background-color: var(--purple);
+      color: #fff;
+      filter: none;
+    }
+  }
+
   border: 0;
   height: 3.2rem;
   width: 100%;
