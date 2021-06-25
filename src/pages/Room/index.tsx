@@ -4,8 +4,10 @@ import { useCallback, useState, FormEvent, ChangeEvent } from 'react';
 
 import logoImg from 'assets/images/logo.svg';
 import Button from 'components/Button';
+import Question from 'components/Question';
 import { database } from 'services/firebase';
 import RoomCode from 'components/RoomCode';
+import { useRoom } from 'hooks/useRoom';
 import { useAuth } from 'hooks/auth';
 import * as S from './styles';
 
@@ -17,6 +19,7 @@ export default function Room() {
   const { user } = useAuth();
   const params = useParams<RoomParams>();
   const roomId = params.id;
+  const { questions, title } = useRoom(roomId);
 
   const [newQuestion, setNewQuestion] = useState('');
 
@@ -68,8 +71,13 @@ export default function Room() {
 
       <S.Main>
         <S.TitleRoom>
-          <h1>Sala React</h1>
-          <span>4 perguntas</span>
+          <h1>{title}</h1>
+          {questions.length > 0 && (
+            <span>
+              {questions.length}{' '}
+              {questions.length === 1 ? 'pergunta' : 'perguntas'}{' '}
+            </span>
+          )}
         </S.TitleRoom>
 
         <S.Form onSubmit={handelSendQuestion}>
@@ -96,6 +104,14 @@ export default function Room() {
             </Button>
           </S.FooterForm>
         </S.Form>
+
+        {questions.map(question => (
+          <Question
+            key={question.id}
+            content={question.content}
+            author={question.author}
+          />
+        ))}
       </S.Main>
     </S.Container>
   );
