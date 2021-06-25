@@ -41,7 +41,7 @@ const GlobalStyles = createGlobalStyle`
 
   button {
     cursor: pointer;
-    transition: filter 0.2s;
+    transition: all 0.2s;
 
     :not(:disabled):hover {
       filter: brightness(0.9);
