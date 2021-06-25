@@ -4,6 +4,7 @@ import { useCallback, useState, FormEvent, ChangeEvent } from 'react';
 
 import logoImg from 'assets/images/logo.svg';
 import Button from 'components/Button';
+import ButtonLike from 'components/ButtonLike';
 import Question from 'components/Question';
 import { database } from 'services/firebase';
 import RoomCode from 'components/RoomCode';
@@ -110,7 +111,15 @@ export default function Room() {
             key={question.id}
             content={question.content}
             author={question.author}
-          />
+          >
+            <ButtonLike
+              likeCount={question.likeCount}
+              likeId={question.likeId}
+              roomId={roomId}
+              questionId={question.id}
+              userId={user?.id}
+            />
+          </Question>
         ))}
       </S.Main>
     </S.Container>
