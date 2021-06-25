@@ -38,4 +38,14 @@ export const Footer = styled.footer`
 export const Wrapper = styled.div`
   display: flex;
   justify-content: flex-end;
+
+  button.delete {
+    margin-bottom: -1.8rem;
+    border: 0;
+    background-color: transparent;
+
+    > img {
+      height: 22px;
+    }
+  }
 `;
