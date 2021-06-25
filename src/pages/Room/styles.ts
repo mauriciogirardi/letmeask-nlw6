@@ -1,9 +1,16 @@
 import styled from 'styled-components';
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  padding-bottom: 2rem;
+`;
+
 export const Header = styled.header`
   padding: 1rem 2.5rem;
   border-bottom: 1px solid #e2e2e2;
+
+  @media (max-width: 500px) {
+    padding: 1rem;
+  }
 `;
 export const Content = styled.div`
   max-width: 1120px;
@@ -15,6 +22,12 @@ export const Content = styled.div`
 
   > img {
     max-height: 2.7rem;
+  }
+
+  @media (max-width: 500px) {
+    > img {
+      max-height: 2.5rem;
+    }
   }
 `;
 
@@ -43,9 +56,19 @@ export const TitleRoom = styled.div`
     border-radius: 9999px;
     font-size: 0.9rem;
   }
+
+  @media (max-width: 500px) {
+    justify-content: space-between;
+
+    h1 {
+      font-size: 1.1rem;
+    }
+  }
 `;
 
 export const Form = styled.form`
+  margin-bottom: 3rem;
+
   textarea {
     width: 100%;
     border: 0;
