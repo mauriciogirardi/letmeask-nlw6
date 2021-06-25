@@ -2,12 +2,11 @@ import { useParams } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 import { useCallback, useState, FormEvent, ChangeEvent } from 'react';
 
-import logoImg from 'assets/images/logo.svg';
 import Button from 'components/Button';
+import Header from 'components/Header';
 import ButtonLike from 'components/ButtonLike';
 import Question from 'components/Question';
 import { database } from 'services/firebase';
-import RoomCode from 'components/RoomCode';
 import { useRoom } from 'hooks/useRoom';
 import { useAuth } from 'hooks/auth';
 import * as S from './styles';
@@ -62,13 +61,7 @@ export default function Room() {
   return (
     <S.Container>
       <Toaster position="top-right" />
-
-      <S.Header>
-        <S.Content>
-          <img src={logoImg} alt="Logo Letmeask" />
-          <RoomCode code={roomId} />
-        </S.Content>
-      </S.Header>
+      <Header codeRoom={roomId} />
 
       <S.Main>
         <S.TitleRoom>
@@ -111,14 +104,18 @@ export default function Room() {
             key={question.id}
             content={question.content}
             author={question.author}
+            isAnswered={question.isAnswered}
+            isHighLighted={question.isHighLighted}
           >
-            <ButtonLike
-              likeCount={question.likeCount}
-              likeId={question.likeId}
-              roomId={roomId}
-              questionId={question.id}
-              userId={user?.id}
-            />
+            {!question.isAnswered && (
+              <ButtonLike
+                likeCount={question.likeCount}
+                likeId={question.likeId}
+                roomId={roomId}
+                questionId={question.id}
+                userId={user?.id}
+              />
+            )}
           </Question>
         ))}
       </S.Main>

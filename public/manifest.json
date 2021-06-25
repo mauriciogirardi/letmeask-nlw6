@@ -1,0 +1,16 @@
+{
+  "name": "Letmeasd",
+  "background_color": "#f8f8f8",
+  "display": "standalone",
+  "orientation": "portrait",
+  "Scope": "",
+  "start_url": "",
+
+  "icons": [
+    {
+      "src": "images/icons/icon-157x75.svg",
+      "sizes": "157x75",
+      "type": "image/svg"
+    }
+  ]
+}

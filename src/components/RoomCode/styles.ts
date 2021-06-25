@@ -4,13 +4,13 @@ export const Container = styled.button`
   position: relative;
   display: flex;
   align-items: center;
-  border: 1px solid var(--purple);
+  border: 1px solid ${props => props.theme?.colors.purple};
   height: 40px;
   border-radius: 0.5rem;
-  background-color: var(--details);
+  background-color: ${props => props.theme?.colors.details};
 
   > div {
-    background: var(--purple);
+    background: ${props => props.theme?.colors.purple};
     height: 100%;
     display: flex;
     align-items: center;

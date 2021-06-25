@@ -11,10 +11,10 @@ export const Container = styled.button`
   }
 
   &.liked {
-    color: var(--purple);
+    color: ${props => props.theme?.colors.purple};
   }
 
   &.liked svg path {
-    stroke: var(--purple);
+    stroke: ${props => props.theme?.colors.purple};
   }
 `;

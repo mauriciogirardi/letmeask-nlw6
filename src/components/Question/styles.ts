@@ -1,17 +1,37 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
-  background: var(--details);
+type QuestionProps = {
+  isAnswered?: boolean;
+  isHighLighted?: boolean;
+};
+
+export const Container = styled.div<QuestionProps>`
+  background: ${props => props.theme?.colors.secondary};
+  color: ${props => props.theme?.colors.title};
   border-radius: 0.5rem;
   padding: 1.5rem;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+
+  ${props =>
+    props.isHighLighted &&
+    css`
+      background-color: ${props.theme?.colors.isHighLighted};
+      border: 1px solid ${props.theme?.colors.purple};
+    `}
+
+  ${props =>
+    props.isAnswered &&
+    css`
+      background-color: ${props.theme?.colors.grayLight};
+      border: 1px solid ${props.theme?.colors.pinkDark};
+    `}
 
   & + div {
     margin-top: 1rem;
   }
 `;
 
-export const Footer = styled.footer`
+export const Footer = styled.footer<QuestionProps>`
   display: flex;
   justify-content: center;
   justify-content: space-between;
@@ -30,7 +50,7 @@ export const Footer = styled.footer`
     span {
       margin-left: 0.6rem;
       font-size: 0.9rem;
-      color: var(--gray-dark);
+      color: ${props => props.theme?.colors.isHighLightedTitle};
     }
   }
 `;

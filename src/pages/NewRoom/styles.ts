@@ -22,8 +22,8 @@ export const Container = styled.div`
 
 export const Aside = styled.aside`
   flex: 5;
-  background-color: var(--purple);
-  color: var(--details);
+  background-color: ${props => props.theme?.colors.purple};
+  color: ${props => props.theme?.colors.details};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -81,8 +81,8 @@ export const Center = styled.div`
     border: 0;
     height: 3.1rem;
     font-weight: 500;
-    background-color: var(--red);
-    color: var(--details);
+    background-color: ${props => props.theme?.colors.red};
+    color: ${props => props.theme?.colors.details};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -104,7 +104,7 @@ export const Form = styled.form<FormProps>`
     height: 3rem;
     border-radius: 0.5rem;
     padding: 0 1rem;
-    background-color: var(--details);
+    background-color: ${props => props.theme?.colors.details};
     border: 1px solid ${props => (props.isFilled ? '#A8A8B3' : '#ea4335')};
     width: 100%;
     outline-color: ${props => (props.isFilled ? '#6F4BD8' : '#ea4335')};
@@ -124,11 +124,11 @@ export const LinkHere = styled.div`
   justify-content: space-between;
 
   p {
-    color: var(--gray-dark);
+    color: ${props => props.theme?.colors.grayDark};
   }
 
   a {
-    color: var(--pink-dark);
+    color: ${props => props.theme?.colors.pinkDark};
     transition: filter 0.2s;
 
     :hover {

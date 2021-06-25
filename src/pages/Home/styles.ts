@@ -22,8 +22,8 @@ export const Container = styled.div`
 
 export const Aside = styled.aside`
   flex: 5;
-  background-color: var(--purple);
-  color: var(--details);
+  background-color: ${props => props.theme?.colors.purple};
+  color: ${props => props.theme?.colors.details};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -82,8 +82,8 @@ export const Center = styled.div`
     border: 0;
     height: 3.1rem;
     font-weight: 500;
-    background-color: var(--red);
-    color: var(--details);
+    background-color: ${props => props.theme?.colors.red};
+    color: ${props => props.theme?.colors.details};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -96,7 +96,7 @@ export const Center = styled.div`
 
 export const Line = styled.div`
   font-size: 0.9rem;
-  color: var(--gray-medium);
+  color: ${props => props.theme?.colors.grayMedium};
   margin: 2rem 0;
   display: flex;
   justify-content: center;
@@ -107,7 +107,7 @@ export const Line = styled.div`
     flex: 1;
     height: 1px;
     margin-right: 1rem;
-    background-color: var(--gray-medium);
+    background-color: ${props => props.theme?.colors.grayMedium};
   }
 
   :after {
@@ -115,7 +115,7 @@ export const Line = styled.div`
     flex: 1;
     height: 1px;
     margin-left: 1rem;
-    background-color: var(--gray-medium);
+    background-color: ${props => props.theme?.colors.grayMedium};
   }
 `;
 
@@ -138,7 +138,7 @@ export const Form = styled.form<FormProps>`
 export const Warning = styled.span`
   margin-top: 0.5rem;
   display: block;
-  color: var(--red);
+  color: ${props => props.theme?.colors.red};
   font-size: 0.8rem;
   font-weight: bold;
   font-family: 'Poppins', sans-serif;

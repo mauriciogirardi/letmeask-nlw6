@@ -1,34 +1,19 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const animate = keyframes`
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
 
 export const Container = styled.div`
   padding-bottom: 2rem;
-`;
-
-export const Header = styled.header`
-  padding: 1rem 2.5rem;
-  border-bottom: 1px solid #e2e2e2;
-
-  @media (max-width: 500px) {
-    padding: 1rem;
-  }
-`;
-export const Content = styled.div`
-  max-width: 1120px;
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  > img {
-    max-height: 2.7rem;
-  }
-
-  @media (max-width: 500px) {
-    > img {
-      max-height: 2.5rem;
-    }
-  }
+  background-color: ${props => props.theme?.colors.background};
+  color: ${props => props.theme?.colors.title};
+  min-height: 100%;
 `;
 
 export const Main = styled.main`
@@ -36,6 +21,7 @@ export const Main = styled.main`
   width: 100%;
   margin: 0 auto;
   padding: 0 1rem;
+  animation: ${animate} 0.8s;
 `;
 
 export const TitleRoom = styled.div`
@@ -50,9 +36,9 @@ export const TitleRoom = styled.div`
 
   span {
     margin-left: 1rem;
-    background-color: var(--pink-dark);
+    background-color: ${props => props.theme?.colors.pinkDark};
     padding: 0.5rem 1rem;
-    color: var(--details);
+    color: ${props => props.theme?.colors.details};
     border-radius: 9999px;
     font-size: 0.9rem;
   }
@@ -73,12 +59,13 @@ export const Form = styled.form`
     width: 100%;
     border: 0;
     padding: 1rem;
-    background-color: var(--details);
+    background-color: ${props => props.theme?.colors.secondary};
+    color: ${props => props.theme?.colors.title};
     border-radius: 0.5rem;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
     resize: vertical;
     height: 9rem;
-    outline-color: var(--gray-light);
+    outline: 0;
   }
 `;
 export const UserInfo = styled.div`
@@ -107,12 +94,12 @@ export const FooterForm = styled.footer`
   > span {
     font-size: 0.9rem;
     font-weight: 500;
-    color: var(--gray-dark);
+    color: ${props => props.theme?.colors.grayDark};
 
     button {
       background-color: transparent;
       border: 0;
-      color: var(--purple);
+      color: ${props => props.theme?.colors.purple};
       text-decoration: underline;
       font-size: 0.9rem;
       font-weight: 500;

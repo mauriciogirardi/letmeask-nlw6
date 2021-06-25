@@ -10,8 +10,8 @@ type ButtonProps = {
 export const Container = styled.button<ButtonProps>`
   border: 0;
   height: 3.2rem;
-  background-color: var(--purple);
-  color: var(--details);
+  background-color: ${props => props.theme?.colors.purple};
+  color: ${props => props.theme?.colors.details};
   width: 100%;
   border-radius: 0.5rem;
   font-weight: 500;
@@ -24,27 +24,27 @@ export const Container = styled.button<ButtonProps>`
   ${props =>
     props.isDelete &&
     css`
-      background-color: var(--danger);
-      color: var(--details);
+      background-color: ${props.theme?.colors.danger};
+      color: ${props.theme?.colors.details};
     `}
 
   ${props =>
     props.isConfirmation &&
     css`
-      background-color: var(--gray-medium);
-      color: var(--gray-dark);
+      background-color: ${props.theme?.colors.grayMedium};
+      color: ${props.theme?.colors.grayDark};
     `}
 
   ${props =>
     props.isOutlined &&
     css`
-      border: 1px solid var(--purple);
+      border: 1px solid ${props.theme?.colors.purple};
       background-color: transparent;
-      color: var(--purple);
+      color: ${props.theme?.colors.purple};
       transition: all 0.4s;
 
       :hover {
-        background-color: var(--purple);
+        background-color: ${props.theme?.colors.purple};
         color: #fff;
         filter: none;
       }
