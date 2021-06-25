@@ -19,6 +19,7 @@
   },
   "plugins": ["react", "@typescript-eslint", "react-hooks", "prettier"],
   "rules": {
+    "react/require-default-props": "off",
     "no-useless-return": "off",
     "consistent-return": "off",
     "react/jsx-props-no-spreading": "off",
