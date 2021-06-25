@@ -27,4 +27,15 @@ export const Container = styled.button`
     font-size: 0.9rem;
     font-weight: 500;
   }
+
+  @media (max-width: 500px) {
+    span {
+      width: 167px;
+      padding: 0 0.9rem 0 0.5rem;
+      font-size: 0.8rem;
+    }
+    > div {
+      padding: 0 0.5rem;
+    }
+  }
 `;
